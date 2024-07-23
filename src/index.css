@@ -1,0 +1,30 @@
+:root{
+  --bg-color: #FFFFE4;
+  --pm-color: #F25757;
+  --pm-light: #F2B9B3;
+}
+
+body{
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Guton-Regular';
+  src: url(./fonts/guton/Guton-Regular.woff2);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Guton-Semibold';
+  src: url(./fonts/guton/Guton-SemiBold.woff2);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Guton-Extbold';
+  src: url(./fonts/guton/Guton-ExtraBold.woff2);
+  font-weight: normal;
+  font-style: normal;
+}
