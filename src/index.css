@@ -2,10 +2,12 @@
   --bg-color: #FFFFE4;
   --pm-color: #F25757;
   --pm-light: #F2B9B3;
+  --pm-dark:#200b0b;
 }
 
 body{
   margin: 0;
+  
 }
 
 @font-face {

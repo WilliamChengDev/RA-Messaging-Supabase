@@ -1,11 +1,15 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { supabase } from "../main";
-import { LoadingOverlay } from "@mantine/core";
+// import { useDisclosure } from '@mantine/hooks';
+// import { LoadingOverlay } from "@mantine/core";
 
 export default function Login(){
         const[email, setEmail] = useState("");
         const[password, setPassword] = useState("");
+
+        // const [visible, { toggle }] = useDisclosure(false); //for maintine loader overlay
+
 
         async function login() {
                 console.log('logging in')
@@ -22,8 +26,8 @@ export default function Login(){
 
         return(
                 <div className="login-bg" style={{height:'100vh', backgroundColor:'var(--bg-color)', display:'flex', justifyContent:'center', alignItems: 'center'}}>
-                        <div className='login' style={{width:'90%', zIndex:'10', display:'flex', flexDirection:'column', alignItems:'center', position:'absolute', backgroundColor:'var(--pm-color)', borderRadius:'1em', filter:'drop-shadow(0 0 0.75rem black)'}}>
-                                <LoadingOverlay visible={visible} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
+                        <div className='login' style={{position:'relative', width:'90%', zIndex:'10', display:'flex', flexDirection:'column', alignItems:'center', backgroundColor:'var(--pm-color)', borderRadius:'1em', filter:'drop-shadow(0 0 0.75rem black)'}}>
+                                {/* <LoadingOverlay visible={visible} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} /> */}
                                 <h1 style={{fontFamily:'Guton-Semibold'}}>Welcome Back!</h1>
                                 <form className="log-in-form" action="" style={{display:'flex', flexDirection:'column', alignItems:'center', margin:'0em 2em 2em 2em', width:'80%'}}>
                                         <label htmlFor="email" style={{fontFamily:'Guton-Regular', color:'var(--bg-color)'}}>Email:</label>
