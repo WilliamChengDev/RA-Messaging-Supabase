@@ -1,9 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
 import Login from './Login';
-
-const supabase = createClient("https://dpuhkvbnpwobkrxftoji.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwdWhrdmJucHdvYmtyeGZ0b2ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk3MjIxMDIsImV4cCI6MjAzNTI5ODEwMn0.rct-VS_M3RhTaob_R0Y48OZSjXRJEHWt1L3JiUMG1SM");
+import { supabase } from "../main";
 
 export default function Feed() {
         const[posts, setPosts] = useState([]);
@@ -23,7 +21,6 @@ export default function Feed() {
                         <div className='feed-top-row' style={{height:'10vh', display:'flex', justifyContent:'center', alignItems: 'center'}}>
                                 <h1 style={{fontFamily:'Guton-Semibold', color:'var(--pm-color)'}}>Comments</h1>
                         </div>
-                        <Login/>
                         <div className='feed-container' style={{height:'fit-content', display:'flex', flexDirection:'column', alignItems:'center', backgroundColor:"var(--bg-color)", paddingBottom:'2em'}}>
                                 {(typeof posts === 'undefined') ? (
                                         <div className='feed-loading'>
@@ -31,7 +28,7 @@ export default function Feed() {
                                         </div>
                                 ) : (
                                         (posts.map((post, i) => (
-                                                <div className='message' style={{width:'90%', maxWidth:'90%'}}>
+                                                <div key={i} className='message' style={{width:'90%', maxWidth:'90%'}}>
                                                         <div className='message-user' style={{marginLeft:'3%', display:'flex', flexDirection: 'row', justifyContent:'space-between'}}>
                                                                 <h4 style={{margin:'1%', fontFamily:'Guton-Semibold'}}>{post.username}</h4>
                                                                 <h5 style={{margin:'1%', fontFamily:'Guton-Regular'}}>{post.datecreated}</h5>
